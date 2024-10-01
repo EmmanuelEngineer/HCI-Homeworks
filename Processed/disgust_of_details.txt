@@ -1,0 +1,13 @@
+Input:disgust.webm.mp4
+Input full path:/home/emmavico/Programmi/Università/AdvancedHCI/homework2/project/video/disgust.webm.mp4
+Camera parameters:1312.5,1312.5,960,540
+Output HOG:disgust.webm.hog
+Output video:disgust.webm.avi
+Output aligned directory:disgust.webm_aligned
+Output csv:disgust.webm.csv
+Gaze: 1
+AUs: 1
+Landmarks 2D: 1
+Landmarks 3D: 1
+Pose: 1
+Shape parameters: 1

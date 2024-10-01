@@ -1,0 +1,13 @@
+Input:happiness.webm.mp4
+Input full path:/home/emmavico/Programmi/Università/AdvancedHCI/homework2/project/video/happiness.webm.mp4
+Camera parameters:1312.5,1312.5,960,540
+Output HOG:happiness.webm.hog
+Output video:happiness.webm.avi
+Output aligned directory:happiness.webm_aligned
+Output csv:happiness.webm.csv
+Gaze: 1
+AUs: 1
+Landmarks 2D: 1
+Landmarks 3D: 1
+Pose: 1
+Shape parameters: 1

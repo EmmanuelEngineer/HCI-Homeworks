@@ -1,0 +1,13 @@
+Input:anger.webm.mp4
+Input full path:/home/emmavico/Programmi/Università/AdvancedHCI/homework2/project/video/anger.webm.mp4
+Camera parameters:1312.5,1312.5,960,540
+Output HOG:anger.webm.hog
+Output video:anger.webm.avi
+Output aligned directory:anger.webm_aligned
+Output csv:anger.webm.csv
+Gaze: 1
+AUs: 1
+Landmarks 2D: 1
+Landmarks 3D: 1
+Pose: 1
+Shape parameters: 1

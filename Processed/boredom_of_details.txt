@@ -1,0 +1,13 @@
+Input:boredom.webm.mp4
+Input full path:/home/emmavico/Programmi/Università/AdvancedHCI/homework2/project/video/boredom.webm.mp4
+Camera parameters:1312.5,1312.5,960,540
+Output HOG:boredom.webm.hog
+Output video:boredom.webm.avi
+Output aligned directory:boredom.webm_aligned
+Output csv:boredom.webm.csv
+Gaze: 1
+AUs: 1
+Landmarks 2D: 1
+Landmarks 3D: 1
+Pose: 1
+Shape parameters: 1
