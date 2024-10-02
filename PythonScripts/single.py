@@ -3,7 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Carica il file CSV
-csv_file_path = "/Users/chiaramusso/Desktop/webcam_2024-09-28-21-06/webcam_2024-09-28-21-06.csv"
+EMOTION = "interest"
+csv_file_path = f"Processed/{EMOTION}.csv"
 df = pd.read_csv(csv_file_path)
 
 # Rimuovi spazi nei nomi delle colonne
@@ -22,13 +23,13 @@ for au in au_presence_columns:
     normalized_activations.append(normalized_activation)
 
 plt.bar(au_presence_columns, normalized_activations, alpha=0.7, color='b')
-plt.title('Istogramma Normalizzato di Attivazione delle AU')
+plt.title(f'Normalized Histogram for AU activations {EMOTION}')
 plt.xlabel('Action Units (AUs)')
-plt.ylabel('Frequenza di Attivazione Normalizzata')
+plt.ylabel('Normalized frequency activation')
 plt.xticks(rotation=90)
 plt.grid(axis='y', linestyle='--')
 plt.tight_layout()
-plt.show()
+plt.savefig(f"{EMOTION}_act.png")
 
 # Parte 3b: Istogramma per l'intensità delle AU
 plt.figure(figsize=(10, 6))
@@ -37,13 +38,14 @@ for au in au_intensity_columns:
     bins = np.linspace(0, 1, 10)  # 10 intervalli uguali nell'intervallo [0, 1]
     plt.hist(au_data, bins=bins, density=True, alpha=0.5, label=au)
 
-plt.title('Istogramma Normalizzato dell\'Intensità delle AU')
-plt.xlabel('Livello di Intensità')
-plt.ylabel('Frequenza Normalizzata')
+plt.title(f"Normalized Histogram for AU Intensity activations {EMOTION}")
+plt.xlabel('Intensity level')
+plt.ylabel('Normalized frequence')
 plt.legend(loc='upper right', bbox_to_anchor=(1.2, 1))
 plt.grid(axis='y', linestyle='--')
 plt.tight_layout()
-plt.show()
+plt.savefig(f"{EMOTION}_int.png")
+
 
 # Parte 4: Confronto delle AU attivate con la tabella delle emozioni
 
@@ -107,13 +109,13 @@ plt.figure(figsize=(10, 6))
 for au in au_intensity_columns:
     plt.plot(df.index, df[au], label=au)
 
-plt.title(f'Intensità delle AU nel tempo per {emotion}')
+plt.title(f'AU intesity in time for {emotion}')
 plt.xlabel('Frame')
-plt.ylabel('Intensità')
+plt.ylabel('Intensity')
 plt.legend(loc='upper right', bbox_to_anchor=(1.2, 1))
 plt.grid()
 plt.tight_layout()
-plt.show()
+plt.savefig(f"{EMOTION}_time.png")
 
 # Parte 6: Focus su amusement, anxiety, boredom, interest
 focus_emotions = ["amusement", "anxiety", "boredom", "interest"]

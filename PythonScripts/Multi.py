@@ -33,7 +33,7 @@ for emotion in emotions:
     au_intensity_columns = [col for col in df.columns if '_r' in col]  # Colonne di intensità AU
 
     # Parte 3a: Istogramma per attivazione delle AU
-    plt.figure(figsize=(10, 6))
+    #plt.figure(figsize=(10, 6))
     normalized_activations = []
     activated_aus = df[au_presence_columns].sum() > 0
     activated_aus_list = []
@@ -47,29 +47,30 @@ for emotion in emotions:
         normalized_activation = df[au].sum() / len(df)  # Normalizza per il numero di frame
         normalized_activations.append(normalized_activation)
 
-    plt.bar(au_presence_columns, normalized_activations, alpha=0.7, color='b')
+    """     plt.bar(au_presence_columns, normalized_activations, alpha=0.7, color='b')
     plt.title('Normalized Histogram for AU activations')
     plt.xlabel('Action Units (AUs)')
     plt.ylabel('Normalized frequency activation')
     plt.xticks(rotation=90)
     plt.grid(axis='y', linestyle='--')
     plt.tight_layout()
-    #plt.show()
+    plt.show()
+        plt.figure(figsize=(10, 6))
+    """
 
     # Parte 3b: Istogramma per l'intensità delle AU
-    plt.figure(figsize=(10, 6))
     for au in au_intensity_columns:
         au_data = df[au]
         bins = np.linspace(0, 1, 10)  # 10 intervalli uguali nell'intervallo [0, 1]
-        plt.hist(au_data, bins=bins, density=True, alpha=0.5, label=au)
+        #plt.hist(au_data, bins=bins, density=True, alpha=0.5, label=au)
 
-    plt.title("Normalized Histogram for AU Intensity activations")
+    """     plt.title("Normalized Histogram for AU Intensity activations")
     plt.xlabel('Intensity level')
     plt.ylabel('Normalized frequence')
     plt.legend(loc='upper right', bbox_to_anchor=(1.2, 1))
     plt.grid(axis='y', linestyle='--')
     plt.tight_layout()
-    #plt.show()
+    plt.show() """
 
     # Parte 4: Confronto delle AU attivate con la tabella delle emozioni
 
@@ -126,23 +127,24 @@ for emotion in emotions:
     print(f"Corrisponding AU: {matched_aus}")
     print(f"Extra AUs (Unexpected but activated): {extra_aus}")
     print(f"Missing AUs (Expected but not activated): {missing_aus}")
+    """
 
     # Parte 5: Grafico dell'intensità delle AU nel tempo per l'emozione selezionata
     plt.figure(figsize=(10, 6))
     for au in au_intensity_columns:
         plt.plot(df.index, df[au], label=au)
 
-    plt.title(f'AU intesity in time for {emotion}')
+     plt.title(f'AU intesity in time for {emotion}')
     plt.xlabel('Frame')
     plt.ylabel('Intensity')
     plt.legend(loc='upper right', bbox_to_anchor=(1.2, 1))
     plt.grid()
     plt.tight_layout()
-    #plt.show()
+    plt.show() """
 
     # Parte 6: Focus su amusement, anxiety, boredom, interest
     focus_emotions = ["amusement", "anxiety", "boredom", "interest"]
-""" 
+    """ 
     for focus_emotion in focus_emotions:
         # Confronto per ogni emozione di interesse
         print(f"-----------------------------------------------------\nAnalisys for the expression: {focus_emotion}")
@@ -161,3 +163,14 @@ for emotion in emotions:
 
 
 print(activation_accumulation)
+plt.close()
+fig, ax = plt.subplots()
+
+au_index = list(activation_accumulation.keys())
+au_sum = activation_accumulation.values()
+ax.bar(au_index, au_sum,label=au_index)
+plt.xticks(au_index)
+ax.set_ylabel('Au count')
+ax.set_title('Au count on 11 basic emotions')
+plt.tight_layout()
+plt.show()
